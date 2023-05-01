@@ -20,9 +20,9 @@ public class DataLogic : IDataLogic
             throw new Exception("ID already taken!");
 
         ValidateData(data);
-        Data toCreate = new Data();
-        {
-        };
+        Data toCreate = new Data(data.Id,data.Body);
+        
+        
     
         Data created = await dao.CreateAsync(toCreate);
     
