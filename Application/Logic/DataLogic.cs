@@ -1,5 +1,6 @@
 ﻿using Application.DAO_Interfaces;
 using Application.Logic_Interfaces;
+using Domain.DTOs;
 using Domain.Models;
 
 namespace Application.Logic;
@@ -27,6 +28,11 @@ public class DataLogic : IDataLogic
         Data created = await dao.CreateAsync(toCreate);
     
         return created;
+    }
+
+    public Task<IEnumerable<Data>> GetAsync(GetDataDTO searchParams)
+    {
+        return dao.GetAsync(searchParams);
     }
 
     private static void ValidateData(Data data)

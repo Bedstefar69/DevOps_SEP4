@@ -4,6 +4,9 @@ namespace FileData;
 
 public class Datacontainer
 {
-    public ICollection<Data> data { get; set; }
+   
+
+    public ICollection<Data>? data { get; set; }
+    
  
 }

@@ -1,4 +1,5 @@
 ﻿using Application.DAO_Interfaces;
+using Domain.DTOs;
 using Domain.Models;
 
 namespace FileData.DAOs;
@@ -27,6 +28,8 @@ public class DataFileDAO : IDataDAO
         context.SaveChanges();
 
         return Task.FromResult(data);
+        
+        
     }
 
     public Task<Data?> GetByID(int id)
@@ -35,5 +38,17 @@ public class DataFileDAO : IDataDAO
             u.Id ==id
         );
         return Task.FromResult(existing);
+    }
+
+    public Task<IEnumerable<Data>> GetAsync(GetDataDTO searchParams)
+    {
+        IEnumerable<Data> data = context.data.AsEnumerable();
+
+        if (searchParams.BodyContains != null)
+        {
+            data = context.data.Where(d => d.Body != null && d.Body.Contains(searchParams.BodyContains, StringComparison.OrdinalIgnoreCase));
+        }
+
+        return Task.FromResult(data);
     }
 }
