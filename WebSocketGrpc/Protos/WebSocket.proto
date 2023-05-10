@@ -36,6 +36,6 @@ message UpdateResponse{
 
 service ProtoService{
   rpc getConnection(Connection) returns (ConnectionResponse);
-  rpc setConfig(NewConfig) returns (ConfigResponse);
+  rpc setConfig(NewConfig) returns (NewConfig);
   rpc checkStatus(Update) returns (UpdateResponse);
 }
