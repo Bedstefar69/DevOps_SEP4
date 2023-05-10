@@ -1,4 +1,4 @@
-package org.example;
+package org.websocket;
 
 import org.json.JSONObject;
 import java.net.URI;

@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba0c5249-1709-42b8-a327-8c11f2172d9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/WebSocketJava/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/example/WebsocketClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/example/main.java" afterDir="false" />
+    <list default="true" id="ba0c5249-1709-42b8-a327-8c11f2172d9f" name="Changes" comment="10-05-2023 - WebSocket oppe og kører -&gt; ingen funktionalitet endnu">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/gRPC/Socket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/gRPC/SocketImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/proto/WebSocket.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/example/WebsocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/WebsocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/example/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/target/classes/org/example/WebsocketClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/target/classes/org/example/main.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,18 +63,42 @@
     "Git.Branch.Popup.ShowAllRemotes": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.main" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\poizo\IdeaProjects\DevOps_SEP4\WebSocketJava\src\main" />
+      <recent name="C:\Users\poizo\IdeaProjects\DevOps_SEP4\WebSocketJava\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Socket">
+    <configuration name="Socket" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gRPC.Socket" />
       <module name="WebSocketJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="gRPC.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.websocket.main" />
+      <module name="WebSocketJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.websocket.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,6 +108,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Socket" />
         <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
@@ -89,8 +122,16 @@
       <option name="presentableId" value="Default" />
       <updated>1683714964655</updated>
       <workItem from="1683714965931" duration="11000" />
-      <workItem from="1683717194379" duration="344000" />
+      <workItem from="1683717194379" duration="6545000" />
     </task>
+    <task id="LOCAL-00001" summary="10-05-2023 - WebSocket oppe og kører -&gt; ingen funktionalitet endnu">
+      <created>1683717681495</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683717681496</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,5 +147,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="10-05-2023 - WebSocket oppe og kører -&gt; ingen funktionalitet endnu" />
+    <option name="LAST_COMMIT_MESSAGE" value="10-05-2023 - WebSocket oppe og kører -&gt; ingen funktionalitet endnu" />
   </component>
 </project>
