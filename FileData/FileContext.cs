@@ -8,7 +8,7 @@ namespace FileData;
 public class FileContext
 {
     private const string filePath = "data.json";
-    private Datacontainer? dataContainer;
+    private DataContainer? dataContainer;
 
 
     public ICollection<Data> data
@@ -19,6 +19,16 @@ public class FileContext
             return dataContainer!.data;
         }
     }
+    
+    public ICollection<User> Users
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Users;
+        }
+    }
+    
 
     private void LoadData()
     {
@@ -28,13 +38,14 @@ public class FileContext
         {
             dataContainer = new ()
             {
-                data = new List<Data>()
+                data = new List<Data>(),
+                Users = new List<User>()
                 
             };
             return;
         }
         string content = File.ReadAllText(filePath);
-        dataContainer = JsonSerializer.Deserialize<Datacontainer>(content);
+        dataContainer = JsonSerializer.Deserialize<DataContainer>(content);
     }
 
     public void SaveChanges()
