@@ -1,5 +1,9 @@
 global using Microsoft.EntityFrameworkCore;
 global using WebAPI.Data;
+using System.Net;
+using WebAPI.Services.PlantService;
+using WebAPI.Services.ReadingService;
+using WebAPI.Services.UserService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +14,22 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPlantService, PlantService>();
+builder.Services.AddScoped<IReadingService, ReadingService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+if (!builder.Environment.IsDevelopment())
+{
+    builder.Services.AddHttpsRedirection(options =>
+    {
+        options.RedirectStatusCode = (int)HttpStatusCode.PermanentRedirect;
+        options.HttpsPort = 443;
+    });
+}
 
 
 var app = builder.Build();
@@ -27,8 +43,15 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
 app.UseAuthorization();
 
+
 app.MapControllers();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action}/{id?}");
 
 app.Run();

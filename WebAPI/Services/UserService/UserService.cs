@@ -1,11 +1,38 @@
-﻿using WebAPI.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using WebAPI.Models;
 
 namespace WebAPI.Services.UserService;
 
 public class UserService : IUserService
 {
-    public IEnumerable<User> GetUsers()
+    private readonly DataContext _context;
+
+    public UserService(DataContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+
+    public bool GetUser(string username, string password)
+    {
+        User tempuser = new User
+        {
+            Username = username,
+            Password = password
+        };
+
+        return (_context.Users.Contains(tempuser));
+    }
+
+    public async Task CreateUser(string username, string password)
+    {
+        User tempuser = new User
+        {
+            Username = username,
+            Password = password
+        };
+        
+        _context.Users.Add(tempuser);
+        await _context.SaveChangesAsync();
+        
     }
 }

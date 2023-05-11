@@ -1,32 +1,38 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebAPI.Models;
+using WebAPI.Services.UserService;
 
 namespace WebAPI.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]/[action]")]
 public class UserController : ControllerBase
 {
-    private readonly DataContext _context;
+    private readonly IUserService _IUserService;
 
-    public UserController(DataContext context)
+    public UserController(IUserService userService)
     {
-        _context = context;
+        _IUserService = userService;
     }
+
     
+    [HttpGet(Name = "GetUser")]
+    public async Task<ActionResult<Boolean>> GetUser(string username, string password)
+    {
+        return Ok(_IUserService.GetUser(username, password));
+    } //Mangler impl
     
-    
-    [HttpGet(Name = "GetUsers") ]
-    public async Task<ActionResult<List<User>>> Get()
+    /*public async Task<ActionResult<List<User>>> Get()
     {
         return Ok(await _context.Users.ToListAsync());
-    }
+    }*/
 
     [HttpPost]
-    public async Task<ActionResult<List<User>>> CreateUser(User tempuser)
+    public async Task<OkResult> CreateUser(string username, string password)
     {
-        _context.Users.Add(tempuser);
-        await _context.SaveChangesAsync();
-        return Ok(await _context.Users.ToListAsync());
+        _IUserService.CreateUser(username, password);
+        
+        return Ok();
+        
+        //Mangler impl
     }
 }
