@@ -1,12 +1,8 @@
-package gRPC;
+package grpc;
 
 import grpc.websocket.*;
 import io.grpc.stub.StreamObserver;
 import org.websocket.WebsocketClient;
-
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.util.concurrent.CompletableFuture;
 
 public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
