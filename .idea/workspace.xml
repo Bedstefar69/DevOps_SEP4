@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba0c5249-1709-42b8-a327-8c11f2172d9f" name="Changes" comment="10-05-2023 - WebSocket oppe og kører -&gt; ingen funktionalitet endnu">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/gRPC/Socket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/gRPC/SocketImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/proto/WebSocket.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="ba0c5249-1709-42b8-a327-8c11f2172d9f" name="Changes" comment="10-05-2023 V2 - gRPC tilføjet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSocketJava/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/example/WebsocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/WebsocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/example/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSocketJava/target/classes/org/example/WebsocketClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSocketJava/target/classes/org/example/main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevOps_SEP4.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/gRPC/SocketImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/gRPC/SocketImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/WebsocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/WebsocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/proto/WebSocket.proto" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/proto/WebSocket.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +50,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Git.Branch.Popup.ShowAllRemotes": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\poizo\IdeaProjects\DevOps_SEP4\WebSocketJava\src\main" />
@@ -122,7 +116,9 @@
       <option name="presentableId" value="Default" />
       <updated>1683714964655</updated>
       <workItem from="1683714965931" duration="11000" />
-      <workItem from="1683717194379" duration="6545000" />
+      <workItem from="1683717194379" duration="7717000" />
+      <workItem from="1683790351446" duration="6920000" />
+      <workItem from="1683817669222" duration="651000" />
     </task>
     <task id="LOCAL-00001" summary="10-05-2023 - WebSocket oppe og kører -&gt; ingen funktionalitet endnu">
       <created>1683717681495</created>
@@ -131,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683717681496</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="10-05-2023 V2 - gRPC tilføjet">
+      <created>1683748861093</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683748861093</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +153,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="10-05-2023 - WebSocket oppe og kører -&gt; ingen funktionalitet endnu" />
-    <option name="LAST_COMMIT_MESSAGE" value="10-05-2023 - WebSocket oppe og kører -&gt; ingen funktionalitet endnu" />
+    <MESSAGE value="10-05-2023 V2 - gRPC tilføjet" />
+    <option name="LAST_COMMIT_MESSAGE" value="10-05-2023 V2 - gRPC tilføjet" />
   </component>
 </project>
