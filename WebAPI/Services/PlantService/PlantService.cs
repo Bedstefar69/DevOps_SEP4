@@ -14,7 +14,7 @@ public class PlantService : IPlantService
 
     public async Task<ActionResult<List<Plant>>> GetPlant()
     {
-        return (_dataContext.Plants.ToList());
+        return await _dataContext.Plants.ToListAsync();
     }
 
     public async Task<ActionResult<List<Plant>>> CreatePlant(string plantname, string? notes)

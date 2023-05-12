@@ -19,7 +19,7 @@ public class PlantController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<Plant>>> GetPlant()
     {
-        return Ok(await _plantService.GetPlant());
+        return await _plantService.GetPlant();
     }
 
     [HttpPost]
