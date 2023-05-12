@@ -9,11 +9,7 @@ public class Program
 
     public static void Main(String[] args)
     {
-        
-        Console.Write("hey\n");
-
-        Console.WriteLine("HEY IT WORKS");
-        using var channel = GrpcChannel.ForAddress("http://localhost:4242");
+        using var channel = GrpcChannel.ForAddress("http://70.34.254.24:4242");
           var client = new ProtoService.ProtoServiceClient(channel);
   
           var reply = client.getConnection(new Connection
@@ -25,8 +21,8 @@ public class Program
           Console.WriteLine($"Response: {reply.Response}");
   
 
-        WebSocketLogicImpl webSocketLogicImpl = new WebSocketLogicImpl("http://localhost:4242");
-        
+        WebSocketLogicImpl webSocketLogicImpl = new WebSocketLogicImpl("http://70.34.254.24:4242");
+        Console.WriteLine("HEY IT WORKS");
 
     }
 }
