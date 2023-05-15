@@ -2,11 +2,11 @@
 
 namespace WebAPI.Models;
 
-public class Plant
+public class Note
 {
     [Key] [MaxLength(50)][Required]
-    public string Name { get; set; }
+    public string Plant { get; set; }
     [MaxLength(250)]
-    public string Notes { get; set; }
+    public string NoteString { get; set; }
     
 }

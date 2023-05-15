@@ -8,9 +8,15 @@ public class Config
     [Key][MaxLength(50)]
     public string Plant { get; set; }
     [Required]
-    public int Temperature { get; set; }
+    public int MinTemperature { get; set; }
     [Required]
-    public int Humidity { get; set; }
+    public int MaxTemperature { get; set; }
     [Required]
-    public int Co2 { get; set; }
+    public int MinHumidity { get; set; }
+    [Required]
+    public int MaxHumidity { get; set; }
+    [Required]
+    public int MinCo2 { get; set; }
+    [Required]
+    public int MaxCo2 { get; set; }
 }

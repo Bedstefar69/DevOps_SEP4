@@ -18,7 +18,27 @@ public class ConfigService : IConfigService
         return await _dataContext.Config.ToListAsync();
     }
 
-    public async Task<ActionResult<List<Config>>> UpdateConfig(string Plant, int Temperature, int Humidity, int Co2)
+    public async Task<ActionResult<List<Config>>> UpdateConfig(string Plant, int minTemperature, int maxTemperature, int minHumidity, int maxHumidity, int minCo2,
+        int maxCo2)
+    {
+        Config tempconfig = new Config
+        {
+            Plant = Plant,
+            MinTemperature = minTemperature,
+            MaxTemperature = maxTemperature,
+            MinHumidity = minHumidity,
+            MaxHumidity = maxHumidity,
+            MinCo2 = minCo2,
+            MaxCo2 = maxCo2
+        };
+        
+        _dataContext.Config.Update(tempconfig);
+        await _dataContext.SaveChangesAsync();
+
+        return await _dataContext.Config.ToListAsync();
+    }
+
+   /* public async Task<ActionResult<List<Config>>> UpdateConfig(string Plant, int Temperature, int Humidity, int Co2)
     {
         Config tempconfig = new Config
         {
@@ -32,5 +52,5 @@ public class ConfigService : IConfigService
         await _dataContext.SaveChangesAsync();
 
         return await _dataContext.Config.ToListAsync();
-    }
+    } */
 }

@@ -2,7 +2,7 @@ global using Microsoft.EntityFrameworkCore;
 global using WebAPI.Data;
 using System.Net;
 using WebAPI.Services.ConfigService;
-using WebAPI.Services.PlantService;
+using WebAPI.Services.NoteService;
 using WebAPI.Services.ReadingService;
 using WebAPI.Services.UserService;
 
@@ -16,7 +16,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IPlantService, PlantService>();
+builder.Services.AddScoped<INoteService, NoteService>();
 builder.Services.AddScoped<IReadingService, ReadingService>();
 builder.Services.AddScoped<IConfigService, ConfigService>();
 

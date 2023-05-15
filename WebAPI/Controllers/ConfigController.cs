@@ -24,9 +24,10 @@ public class ConfigController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<ActionResult<List<Config>>> UpdateConfig(string Plant, int Temperature, int Humidity, int Co2)
+    public async Task<ActionResult<List<Config>>> UpdateConfig(string Plant, int minTemperature, int maxTemperature, int minHumidity, int maxHumidity, int minCo2,
+        int maxCo2)
     {
-        return await _configService.UpdateConfig(Plant, Temperature, Humidity, Co2);
+        return await _configService.UpdateConfig(Plant, minTemperature, maxTemperature, minHumidity, maxHumidity, minCo2, maxCo2);
     }
     
     
