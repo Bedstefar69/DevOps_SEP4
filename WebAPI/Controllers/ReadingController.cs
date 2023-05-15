@@ -20,13 +20,13 @@ public class ReadingController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<Reading>>> GetReadings()
     {
-        return Ok(_readingService.GetReadings().Result);
+        return _readingService.GetReadings().Result;
     }
     
     [HttpGet] 
     public async Task<ActionResult<List<Reading>>> GetNewestReading()
     {
-        return Ok(await _readingService.GetNewestReading());
+        return await _readingService.GetNewestReading();
     }
 
     [HttpPost]
