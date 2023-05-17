@@ -5,7 +5,6 @@ option java_multiple_files = true;
 
 message Connection{ //Muligvis ikke nødvendig (10-05-2023)
   string url = 1;
-  string ip = 2;
 }
 
 message ConnectionResponse{
@@ -13,8 +12,8 @@ message ConnectionResponse{
 }
 
 message NewConfig{
-  int32 temp = 1;
-  int32 humid = 2;
+  double temp = 1;
+  double humid = 2;
   int32 ox = 3;
 }
 
@@ -23,13 +22,13 @@ message ConfigResponse{
 }
 
 message Update{
-  int32 temp = 1;
-  int32 humid = 2;
-  int32 ox = 3;
+  string request = 1;
 }
 
 message UpdateResponse{
-  string response = 1;
+  double temp = 1;
+  double humid = 2;
+  int32 ox = 3;
 }
 
 

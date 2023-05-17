@@ -7,32 +7,35 @@ import org.websocket.WebsocketClient;
 public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
     private WebsocketClient client;
+    private DTO.Update update;
 
 
-
-    public SocketImpl(){
-        //this.client = new WebsocketClient("wss://iotnet.teracom.dk/app?token=vnoVQQAAABFpb3RuZXQudGVyYWNvbS5ka44TEFZ6iw5hEImHN64AWw0=");
+    public SocketImpl() {
         System.out.println("SocketImpl running");
-    };
+    }
 
 
     @Override
-    public void checkStatus(Update update, StreamObserver<UpdateResponse> responseStreamObserver){
-        System.out.println("Status update");
-        System.out.println(update.getOx());
+    public void checkStatus(grpc.websocket.Update request, StreamObserver<UpdateResponse> responseObserver) {
+        System.out.println("Checking for updates");
+        if(client.updateReady){
+           DTO.Update tempUpdate = client.getUpdate();
+           UpdateResponse response = UpdateResponse.newBuilder()
+               .setTemp(tempUpdate.getTemp()).setOx(tempUpdate.getOx()).setHumid(tempUpdate.getHumid()).build();
+
+           responseObserver.onNext(response);
+           responseObserver.onCompleted();
+        }
 
 
-        UpdateResponse response = UpdateResponse.newBuilder().setResponse("response").build();
-        responseStreamObserver.onNext(response);
-        responseStreamObserver.onCompleted();
     }
 
     @Override
-    public void getConnection(Connection connection, StreamObserver<ConnectionResponse> responseStreamObserver){
+    public void getConnection(Connection connection, StreamObserver<ConnectionResponse> responseStreamObserver) {
         System.out.println("Connected");
 
         String url = connection.getUrl();
-        WebsocketClient client = new WebsocketClient(url);
+        client = new WebsocketClient(url);
         client.sendDownLink("idk");
 
 
@@ -41,8 +44,9 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
         responseStreamObserver.onCompleted();
     }
 
+
     @Override
-    public void setConfig(NewConfig config, StreamObserver<ConfigResponse> configResponseStreamObserver){
+    public void setConfig(NewConfig config, StreamObserver<ConfigResponse> configResponseStreamObserver) {
         System.out.println("New Config");
         System.out.println(config.getOx());
 
@@ -52,4 +56,6 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
         configResponseStreamObserver.onCompleted();
 
     }
+
+
 }

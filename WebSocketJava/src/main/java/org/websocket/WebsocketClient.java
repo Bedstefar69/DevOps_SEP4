@@ -1,5 +1,6 @@
 package org.websocket;
 
+import DTO.Update;
 import org.json.JSONObject;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -10,6 +11,23 @@ import java.util.concurrent.CompletableFuture;
 
 public class WebsocketClient implements WebSocket.Listener {
     private WebSocket server = null;
+    private Update update;
+    public boolean updateReady = false;
+
+    public Update getUpdate() {
+        updateReady = false;
+        return update;
+    }
+
+    public void setUpdate(ByteBuffer message) {
+        double temp = 0.0;
+        int ox = 0;
+        double humid = 0.0;
+
+        Update update = new Update(temp, ox, humid);
+        this.update = update;
+        updateReady = true;
+    }
 
     // Send down-link message to device
     // Must be in Json format according to https://github.com/ihavn/IoT_Semester_project/blob/master/LORA_NETWORK_SERVER.md
@@ -67,4 +85,5 @@ public class WebsocketClient implements WebSocket.Listener {
         webSocket.request(1);
         return new CompletableFuture().completedFuture("onText() completed.").thenAccept(System.out::println);
     };
+
 }

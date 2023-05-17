@@ -10,7 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba0c5249-1709-42b8-a327-8c11f2172d9f" name="Changes" comment="12-05-2023 v1 -&gt; Dockeriseret (beta)">
+      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/DTO/Update.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/grpc/SocketImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/grpc/SocketImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/WebsocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/WebsocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/proto/WebSocket.proto" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/proto/WebSocket.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,24 +56,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Git.Branch.Popup.ShowAllRemotes": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/poizo/IdeaProjects/DevOps_SEP4/WebSocketJava/out",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsDialog.application.dockerConsole"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/poizo/IdeaProjects/DevOps_SEP4/WebSocketJava/out&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsDialog.application.dockerConsole&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\poizo\IdeaProjects\DevOps_SEP4\WebSocketJava" />
@@ -76,15 +81,7 @@
       <recent name="C:\Users\poizo\IdeaProjects\DevOps_SEP4\WebSocketJava\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.Docker Image (1)">
-    <configuration name="WebSocketJava.jar (1)" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/WebSocketJava_jar/WebSocketJava.jar" />
-      <method v="2" />
-    </configuration>
-    <configuration name="WebSocketJava.jar (2)" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/WebSocketJava/out/WebSocketJava.jar" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Docker.WebSocketJava/Dockerfile">
     <configuration name="BIGMAN" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
@@ -113,13 +110,39 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="WebSocketJava/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker2">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="4242" />
+                <option name="hostIp" value="0.0.0.0" />
+                <option name="hostPort" value="4242" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="sourceFilePath" value="WebSocketJava/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="mssqltrek-con1" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker2">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="mcr.microsoft.com/mssql/server:2022-latest" />
+          <option name="containerName" value="mssqltrek-con1" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.WebSocketJava/Dockerfile" />
+        <item itemvalue="Docker.mssqltrek-con1" />
         <item itemvalue="Docker.Docker Image (1)" />
         <item itemvalue="Docker.BIGMAN" />
         <item itemvalue="Docker.Docker Image" />
-        <item itemvalue="JAR Application.WebSocketJava.jar (2)" />
-        <item itemvalue="JAR Application.WebSocketJava.jar (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -136,7 +159,11 @@
       <workItem from="1683790351446" duration="6920000" />
       <workItem from="1683817669222" duration="771000" />
       <workItem from="1683838497357" duration="4598000" />
-      <workItem from="1683845653727" duration="6208000" />
+      <workItem from="1683845653727" duration="6831000" />
+      <workItem from="1683943767350" duration="737000" />
+      <workItem from="1684096038343" duration="9158000" />
+      <workItem from="1684137910493" duration="7118000" />
+      <workItem from="1684317161205" duration="3816000" />
     </task>
     <task id="LOCAL-00001" summary="10-05-2023 - WebSocket oppe og kører -&gt; ingen funktionalitet endnu">
       <created>1683717681495</created>
@@ -166,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683847543428</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="12-05-2023 v1 -&gt; Dockeriseret (beta)">
+      <created>1683853491076</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683853491076</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

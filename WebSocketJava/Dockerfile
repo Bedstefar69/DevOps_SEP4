@@ -1,5 +1,7 @@
 FROM openjdk:19-jdk
 
+EXPOSE 4242
+
 VOLUME /backend_volume
 
 COPY /out/*.jar websocket.jar
