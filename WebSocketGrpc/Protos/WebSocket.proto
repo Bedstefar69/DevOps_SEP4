@@ -6,7 +6,6 @@ option java_multiple_files = true;
 
 message Connection{ //Muligvis ikke nødvendig (10-05-2023)
   string url = 1;
-  string ip = 2;
 }
 
 message ConnectionResponse{
@@ -14,9 +13,12 @@ message ConnectionResponse{
 }
 
 message NewConfig{
-  int32 temp = 1;
-  int32 humid = 2;
-  int32 ox = 3;
+  double maxTemp = 1;
+  double minTemp = 2;
+  double maxHumid = 3;
+  double minHumid = 4;
+  int32 maxOx = 5;
+  int32 minOx = 6;
 }
 
 message ConfigResponse{
@@ -24,18 +26,18 @@ message ConfigResponse{
 }
 
 message Update{
-  int32 temp = 1;
-  int32 humid = 2;
-  int32 ox = 3;
+  string response = 1;
 }
 
 message UpdateResponse{
-  string response = 1;
+  double temp = 1;
+  double humid = 2;
+  int32 ox = 3;
 }
 
 
 service ProtoService{
   rpc getConnection(Connection) returns (ConnectionResponse);
-  rpc setConfig(NewConfig) returns (NewConfig);
+  rpc setConfig(NewConfig) returns (ConfigResponse);
   rpc checkStatus(Update) returns (UpdateResponse);
 }
