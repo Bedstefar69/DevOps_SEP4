@@ -1,0 +1,13 @@
+services: 
+  webapi:
+    build:
+      context: .
+      dockerfile: /WebAPI/Dockerfile
+      
+  websocket:
+    depends_on:
+      - webapi
+    build:
+      context: .
+      dockerfile: /WebSocketGrpc/Dockerfile
+      
