@@ -7,14 +7,27 @@ using WebAPI.Services.ReadingService;
 using WebAPI.Services.UserService;
 
 var builder = WebApplication.CreateBuilder(args);
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
-
+// http://*:80
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy  =>
+        {
+            policy.AllowAnyOrigin();
+            policy.AllowAnyMethod();
+            policy.AllowAnyHeader();
+        });
+});
+
+
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<INoteService, NoteService>();
 builder.Services.AddScoped<IReadingService, ReadingService>();
@@ -46,6 +59,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseRouting();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

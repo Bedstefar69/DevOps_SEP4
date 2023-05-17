@@ -19,13 +19,13 @@ public class NoteController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<Note>>> GetNote()
     {
-        return await _noteService.GetNote();
+        return Ok(await _noteService.GetNote());
     }
 
     [HttpPost]
     public async Task<ActionResult<List<Note>>> CreateNote(string plantname, string? notes)
     {
-        return await _noteService.CreateNote(plantname, notes);
+        return Ok(await _noteService.CreateNote(plantname, notes));
     }
     
     

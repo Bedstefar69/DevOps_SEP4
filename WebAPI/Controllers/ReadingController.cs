@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using WebAPI.Models;
 using WebAPI.Services.ReadingService;
 
@@ -19,13 +20,20 @@ public class ReadingController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<Reading>>> GetReadings()
     {
-        return _readingService.GetReadings().Result;
+        return Ok(_readingService.GetReadings().Result);
     }
     
     [HttpGet] 
     public async Task<ActionResult<List<Reading>>> GetNewestReading()
     {
-        return await _readingService.GetNewestReading();
+        return Ok(await _readingService.GetNewestReading());
     }
+
+    [HttpPost]
+    public async Task<ActionResult<List<Reading>>> CreateReading(int temperature, int humidity, int co2)
+    {
+        return Ok(await _readingService.CreateReading(temperature, humidity, co2));
+    }
+    
     
 }
