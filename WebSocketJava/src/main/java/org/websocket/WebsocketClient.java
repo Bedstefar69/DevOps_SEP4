@@ -82,7 +82,7 @@ public class WebsocketClient implements WebSocket.Listener {
     public CompletionStage<?> onText​(WebSocket webSocket, CharSequence data, boolean last) {
         String indented = (new JSONObject(data.toString())).toString(4);
         System.out.println(indented);
-        webSocket.request(1);
+        webSocket.request(99999);
         return new CompletableFuture().completedFuture("onText() completed.").thenAccept(System.out::println);
     };
 

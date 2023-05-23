@@ -4,14 +4,14 @@ public class LoRaWANMessage {
     public String cmd;
     public String EUI;
     public int port;
-    public boolean ack;
+    public boolean confirmed;
     public String data;
 
-    public LoRaWANMessage(String cmd, String EUI, int port, boolean ack, String data) {
+    public LoRaWANMessage(String cmd, String EUI, int port, boolean confirmed, String data) {
         this.cmd = cmd;
         this.EUI = EUI;
         this.port = port;
-        this.ack = ack;
+        this.confirmed = confirmed;
         this.data = data;
     }
 
@@ -47,11 +47,11 @@ public class LoRaWANMessage {
         this.port = port;
     }
 
-    public boolean isAck() {
-        return ack;
+    public boolean isConfirmed() {
+        return confirmed;
     }
 
-    public void setAck(boolean ack) {
-        this.ack = ack;
+    public void setConfirmed(boolean confirmed) {
+        this.confirmed = confirmed;
     }
 }

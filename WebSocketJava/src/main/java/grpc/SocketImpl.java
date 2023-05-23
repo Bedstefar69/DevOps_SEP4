@@ -39,9 +39,6 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
         String url = connection.getUrl();
         client = new WebsocketClient(url);
-        client.sendDownLink("idk");
-
-
         ConnectionResponse response = ConnectionResponse.newBuilder().setResponse("Connected").build();
         responseStreamObserver.onNext(response);
         responseStreamObserver.onCompleted();
@@ -51,14 +48,15 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
     @Override
     public void setConfig(NewConfig config, StreamObserver<ConfigResponse> configResponseStreamObserver) {
         System.out.println("New Config");
-        String data = "" + config.getMaxHumid() + config.getMinHumid() + config.getMaxTemp() + config.getMinTemp() + config.getMaxOx() + config.getMinOx();
+        String data = String.valueOf((int) config.getMaxHumid()) + (int) config.getMinHumid() + (int) config.getMaxTemp() + (int) config.getMinTemp() +config.getMaxOx() + config.getMinOx();
         System.out.println(data);
 
-        LoRaWANMessage message = new LoRaWANMessage("tx","0004A30B00E7E7C1", 2, true, data);
+        LoRaWANMessage message = new LoRaWANMessage("tx","0004A30B00E7E7C1", 1, false, data);
         ObjectMapper mapper = new ObjectMapper();
         try {
             String messageToString = mapper.writeValueAsString(message);
             System.out.println(messageToString);
+            client.sendDownLink(messageToString);
         }
         catch (JsonProcessingException e){
             System.out.println("oops");
