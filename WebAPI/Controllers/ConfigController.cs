@@ -22,12 +22,11 @@ public class ConfigController : ControllerBase
     {
         return  Ok(await _configService.GetConfig());
     }
-
+    
     [HttpPut]
-    public async Task<ActionResult<List<Config>>> UpdateConfig(string Plant, int minTemperature, int maxTemperature, int minHumidity, int maxHumidity, int minCo2,
-        int maxCo2)
+    public async Task<ActionResult<List<Config>>> UpdateConfig([FromBody] Config config)
     {
-        return Ok(await _configService.UpdateConfig(Plant, minTemperature, maxTemperature, minHumidity, maxHumidity, minCo2, maxCo2));
+        return Ok(await _configService.UpdateConfig(config));
     }
     
     
