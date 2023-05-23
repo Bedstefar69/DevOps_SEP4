@@ -48,7 +48,7 @@ public class WebsocketClient implements WebSocket.Listener {
     //onOpen()
     public void onOpen(WebSocket webSocket) {
         // This WebSocket will invoke onText, onBinary, onPing, onPong or onClose methods on the associated listener (i.e. receive methods) up to n more times
-        webSocket.request(1);
+        webSocket.request(10000000);
         System.out.println("WebSocket Listener has been opened for requests.");
     }
 
