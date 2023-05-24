@@ -36,21 +36,23 @@ public class ReadingService : IReadingService
         return readingLast;
     }
 
-    public async Task<ActionResult<List<Reading>>> CreateReading(double temperature, double humidity, int co2)
+    public async Task<bool> CreateReading(double temperature, double humidity, int co2)
     {
         var temp = new Reading()
         {
             Co2 = co2,
             Humidity = humidity,
             Temperature = temperature,
-            Plant = "Tomato",
+            Plant = "Tomato", // Ændres hvis det er en anden plante der skal tages målinger fra, da alle bytes fra IOT enheden er optaget, kan dette ikke tages som et argument i metoden.
             Timestamp = DateTime.Now
         };
 
+        
         _dataContext.Readings.Add(temp);
-        await _dataContext.SaveChangesAsync();
+        var created = await _dataContext.SaveChangesAsync();
+        
+        return created > 0;
 
-        return await _dataContext.Readings.ToListAsync();
     }
 
     
