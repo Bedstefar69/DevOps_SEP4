@@ -8,10 +8,6 @@
         <RootNamespace>SEP4_CLOUD_CS</RootNamespace>
         <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:7.0</ContainerBaseImage>
     </PropertyGroup>
-
-    <ItemGroup>
-        <Protobuf Include="Protos\WebSocket.proto" GrpcServices="Client"></Protobuf>
-    </ItemGroup>
     <ItemGroup>
       <PackageReference Include="Grpc.AspNetCore" Version="2.53.0" />
       <PackageReference Include="Grpc.Tools" Version="2.54.0">
