@@ -1,0 +1,13 @@
+version: "2.1"
+
+services: 
+  webapi:
+    build:
+      context: ./webapi
+      
+  websocket:
+    depends_on:
+      - webapi
+    build:
+      context: ./websocketgrpc
+      

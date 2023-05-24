@@ -1,0 +1,17 @@
+﻿// Local til database
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "server=140.82.33.21,1433\\sqlexpress;database=drivhusdb;trusted_connection=True;User Id=sa; Password=r00t.R00T; Integrated Security=False"
+  },
+// Docker til docker hosted
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "server=172.17.0.2,1433\\sqlexpress;database=drivhusdb;trusted_connection=True;User Id=sa; Password=r00t.R00T; Integrated Security=False"
+  },
+ //Hvis is SEP4 network 
+  {
+  "ConnectionStrings": {
+    "DefaultConnection": "server=sqlserver1,1433\\sqlexpress;database=drivhusdb;trusted_connection=True;User Id=sa; Password=r00t.R00T; Integrated Security=False"
+  },
+  
+  
