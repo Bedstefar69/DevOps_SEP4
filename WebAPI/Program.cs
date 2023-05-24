@@ -83,6 +83,6 @@ app.MapControllerRoute(
 
 //172.17.0.2 -> Docker
 //140.82.33.21 -> localhost
-WebSocketLogicImpl webSocketLogicImpl = new WebSocketLogicImpl("http://localhost:4242");
 
 app.Run();
+Console.WriteLine("and now im dead");

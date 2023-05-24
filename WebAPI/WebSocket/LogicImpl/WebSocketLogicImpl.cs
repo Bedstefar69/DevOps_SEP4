@@ -39,12 +39,8 @@ public class WebSocketLogicImpl : IWebSocketLogic
 
     public async Task<UpdateResponse> getUpdate(Update update)
     {
-        var timer = new PeriodicTimer(TimeSpan.FromSeconds(10));
-
-        while (await timer.WaitForNextTickAsync())
-        {
-            
-        }
-        throw new NotImplementedException();
+        using var channel = GrpcChannel.ForAddress("http://localhost:4242");
+        var client = new ProtoService.ProtoServiceClient(channel);
+        return client.checkStatus(update);
     }
 }

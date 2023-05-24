@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using gRPCWebSocket;
+using Microsoft.AspNetCore.Mvc;
 using WebAPI.WebAPI.Data;
 using WebAPI.WebAPI.Models;
+using WebAPI.WebSocket.LogicImpl;
 
 namespace WebAPI.WebAPI.Services.ReadingService;
 
@@ -8,10 +10,14 @@ public class ReadingService : IReadingService
 {
 
     private readonly DataContext _dataContext;
+    WebSocketLogicImpl webSocketLogicImpl = new WebSocketLogicImpl("http://localhost:4242");
 
     public ReadingService(DataContext dataContext)
     {
         _dataContext = dataContext;
+        Console.WriteLine("HELLO");
+        getReadingFromDevice();
+        Console.WriteLine("hello?");
     }
 
     public async Task<ActionResult<List<Reading>>> GetReadings()
@@ -55,5 +61,25 @@ public class ReadingService : IReadingService
 
     }
 
-    
+    public async void getReadingFromDevice()
+    {
+        Console.WriteLine("hi there");
+        await webSocketLogicImpl.getConnection();
+        var timer = new PeriodicTimer(TimeSpan.FromSeconds(10));
+
+        while (await timer.WaitForNextTickAsync())
+        {
+            var response = await webSocketLogicImpl.getUpdate(new Update
+            {
+                Response = "getReadings"
+            });
+
+            if (response.Temp > 999.0) //Checker hvis der har været en ny reading - ellers returner den en fallback værdi på 999.9
+            {
+                await CreateReading(response.Temp, response.Humid, response.Ox);
+            }
+        }
+
+    }
+
 }
