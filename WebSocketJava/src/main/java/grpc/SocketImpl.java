@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import grpc.websocket.*;
 import io.grpc.stub.StreamObserver;
 import org.websocket.WebsocketClient;
-import org.websocket.models.LoRaWANMessage;
+import DTO.UplinkMessage;
 
 public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
@@ -51,7 +51,7 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
         String data = String.valueOf((int) config.getMaxHumid()) + (int) config.getMinHumid() + (int) config.getMaxTemp() + (int) config.getMinTemp() +config.getMaxOx() + config.getMinOx();
         System.out.println(data);
 
-        LoRaWANMessage message = new LoRaWANMessage("tx","0004A30B00E7E7C1", 1, false, data);
+        UplinkMessage message = new UplinkMessage("tx","0004A30B00E7E7C1", 2, true, data);
         ObjectMapper mapper = new ObjectMapper();
         try {
             String messageToString = mapper.writeValueAsString(message);

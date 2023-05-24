@@ -1,13 +1,13 @@
-package org.websocket.models;
+package DTO;
 
-public class LoRaWANMessage {
+public class UplinkMessage {
     public String cmd;
     public String EUI;
     public int port;
     public boolean confirmed;
     public String data;
 
-    public LoRaWANMessage(String cmd, String EUI, int port, boolean confirmed, String data) {
+    public UplinkMessage(String cmd, String EUI, int port, boolean confirmed, String data) {
         this.cmd = cmd;
         this.EUI = EUI;
         this.port = port;

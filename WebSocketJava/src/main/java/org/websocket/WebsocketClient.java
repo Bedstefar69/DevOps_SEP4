@@ -1,6 +1,10 @@
 package org.websocket;
 
+import DTO.UplinkMessage;
 import DTO.Update;
+import com.fasterxml.jackson.core.JacksonException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -19,14 +23,21 @@ public class WebsocketClient implements WebSocket.Listener {
         return update;
     }
 
-    public void setUpdate(ByteBuffer message) {
-        double temp = 0.0;
-        int ox = 0;
-        double humid = 0.0;
-
+    public void setUpdate(String data) {
+        System.out.println("uplink data: " + data);
+        double humid = hexstringToDouble(data.substring(1,5));
+        double temp =  hexstringToDouble(data.substring(5, 9));
+        int ox = 10 * (int) hexstringToDouble(data.substring(9, 13));
+        System.out.println("temp: " + temp + " | ox: " + ox + " | humid: " + humid);
         Update update = new Update(temp, ox, humid);
         this.update = update;
         updateReady = true;
+    }
+
+    private double hexstringToDouble(String hex){
+        System.out.println(hex);
+        Integer tempInt = Integer.parseInt(hex, 16);
+        return tempInt/10;
     }
 
     // Send down-link message to device
@@ -48,13 +59,13 @@ public class WebsocketClient implements WebSocket.Listener {
     //onOpen()
     public void onOpen(WebSocket webSocket) {
         // This WebSocket will invoke onText, onBinary, onPing, onPong or onClose methods on the associated listener (i.e. receive methods) up to n more times
-        webSocket.request(10000000);
+        webSocket.request(10);
         System.out.println("WebSocket Listener has been opened for requests.");
     }
 
     //onError()
     public void onError​(WebSocket webSocket, Throwable error) {
-        System.out.println("A " + error.getCause() + " exception was thrown.");
+        System.out.println("A " + error.getCause() + " exception was thrown...");
         System.out.println("Message: " + error.getLocalizedMessage());
         webSocket.abort();
     };
@@ -81,8 +92,16 @@ public class WebsocketClient implements WebSocket.Listener {
     //onText()
     public CompletionStage<?> onText​(WebSocket webSocket, CharSequence data, boolean last) {
         String indented = (new JSONObject(data.toString())).toString(4);
-        System.out.println(indented);
+        String dataJson = indented.substring(indented.indexOf('{') + 1);
+        dataJson = dataJson.substring(0, dataJson.indexOf('}'));
+        if(dataJson.contains("rx")) {
+            String dataString = dataJson.substring(dataJson.indexOf("\"data\""));
+            dataString = dataString.substring(dataString.indexOf(": "));
+            dataString = dataString.substring(2, dataString.indexOf(","));
+            setUpdate(dataString);
+        }
         webSocket.request(99999);
+        System.out.println(indented);
         return new CompletableFuture().completedFuture("onText() completed.").thenAccept(System.out::println);
     };
 

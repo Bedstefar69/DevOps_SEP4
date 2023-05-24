@@ -9,12 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba0c5249-1709-42b8-a327-8c11f2172d9f" name="Changes" comment="23-05-2023 -&gt; Større opdatering, udvidelse af kommunikation mellem gRPC og IoT igennem kald">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/WebSocketJava_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/WebSocketJava_jar.xml" afterDir="false" />
+    <list default="true" id="ba0c5249-1709-42b8-a327-8c11f2172d9f" name="Changes" comment="23-05-2023 -&gt; Større opdatering V2, udvidelse af kommunikation mellem gRPC og IoT igennem kald">
+      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/DTO/DownlinkMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/grpc/Socket.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/grpc/Socket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/grpc/SocketImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/grpc/SocketImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/WebsocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/WebsocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/models/LoRaWANMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/models/LoRaWANMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/models/LoRaWANMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/DTO/UplinkMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +165,8 @@
       <workItem from="1684137910493" duration="7118000" />
       <workItem from="1684317161205" duration="7892000" />
       <workItem from="1684842079404" duration="5641000" />
-      <workItem from="1684849990693" duration="4137000" />
+      <workItem from="1684849990693" duration="4945000" />
+      <workItem from="1684922301173" duration="13554000" />
     </task>
     <task id="LOCAL-00001" summary="10-05-2023 - WebSocket oppe og kører -&gt; ingen funktionalitet endnu">
       <created>1683717681495</created>
@@ -215,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684849926560</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="23-05-2023 -&gt; Større opdatering V2, udvidelse af kommunikation mellem gRPC og IoT igennem kald">
+      <created>1684854143689</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684854143689</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +248,7 @@
     <MESSAGE value="12-05-2023 v1 -&gt; Dockeriseret (beta)" />
     <MESSAGE value="17-05-2023 v1 -&gt; Opdatering til gRPC og komponenter" />
     <MESSAGE value="23-05-2023 -&gt; Større opdatering, udvidelse af kommunikation mellem gRPC og IoT igennem kald" />
-    <option name="LAST_COMMIT_MESSAGE" value="23-05-2023 -&gt; Større opdatering, udvidelse af kommunikation mellem gRPC og IoT igennem kald" />
+    <MESSAGE value="23-05-2023 -&gt; Større opdatering V2, udvidelse af kommunikation mellem gRPC og IoT igennem kald" />
+    <option name="LAST_COMMIT_MESSAGE" value="23-05-2023 -&gt; Større opdatering V2, udvidelse af kommunikation mellem gRPC og IoT igennem kald" />
   </component>
 </project>
