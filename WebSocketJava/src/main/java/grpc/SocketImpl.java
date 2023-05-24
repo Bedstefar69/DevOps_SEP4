@@ -20,18 +20,20 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
     @Override
     public void checkStatus(grpc.websocket.Update request, StreamObserver<UpdateResponse> responseObserver) {
+        UpdateResponse response;
         System.out.println("Checking for updates");
-        if(client.updateReady){
-           DTO.Update tempUpdate = client.getUpdate();
-           UpdateResponse response = UpdateResponse.newBuilder()
-               .setTemp(tempUpdate.getTemp()).setOx(tempUpdate.getOx()).setHumid(tempUpdate.getHumid()).build();
-
+        if(client.updateReady) {
+            DTO.Update tempUpdate = client.getUpdate();
+            response = UpdateResponse.newBuilder()
+                    .setTemp(tempUpdate.getTemp()).setOx(tempUpdate.getOx()).setHumid(tempUpdate.getHumid()).build();
+        }
+        else{
+            response = UpdateResponse.newBuilder().setTemp(999.9).setHumid(999.9).setOx(999).build();
+            }
            responseObserver.onNext(response);
            responseObserver.onCompleted();
         }
 
-
-    }
 
     @Override
     public void getConnection(Connection connection, StreamObserver<ConnectionResponse> responseStreamObserver) {
@@ -39,6 +41,7 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
         String url = connection.getUrl();
         client = new WebsocketClient(url);
+        client.setUpdate("\"000a000a000a\"");
         ConnectionResponse response = ConnectionResponse.newBuilder().setResponse("Connected").build();
         responseStreamObserver.onNext(response);
         responseStreamObserver.onCompleted();

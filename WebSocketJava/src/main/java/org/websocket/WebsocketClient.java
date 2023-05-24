@@ -24,12 +24,14 @@ public class WebsocketClient implements WebSocket.Listener {
     }
 
     public void setUpdate(String data) {
+        Update update = null;
+
         System.out.println("uplink data: " + data);
         double humid = hexstringToDouble(data.substring(1,5));
         double temp =  hexstringToDouble(data.substring(5, 9));
         int ox = 10 * (int) hexstringToDouble(data.substring(9, 13));
         System.out.println("temp: " + temp + " | ox: " + ox + " | humid: " + humid);
-        Update update = new Update(temp, ox, humid);
+        update = new Update(temp, ox, humid);
         this.update = update;
         updateReady = true;
     }
