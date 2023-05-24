@@ -1,5 +1,6 @@
 ﻿using Grpc.Net.Client;
 using gRPCWebSocket;
+using WebAPI.WebSocket.LogicImpl;
 
 namespace WebAPI.WebSocket;
 
@@ -21,7 +22,7 @@ public class Program
         Console.WriteLine($"Response: {reply.Response}");
   
 
-        //WebSocketLogicImpl webSocketLogicImpl = new WebSocketLogicImpl("http://172.17.0.6:4242");
+        WebSocketLogicImpl webSocketLogicImpl = new WebSocketLogicImpl("http://172.17.0.6:4242");
         Console.WriteLine("HEY IT WORKS");
 
         var reply2 = client.setConfig(new NewConfig

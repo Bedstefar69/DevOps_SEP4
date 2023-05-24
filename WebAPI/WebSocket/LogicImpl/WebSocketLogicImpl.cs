@@ -25,9 +25,16 @@ public class WebSocketLogicImpl : IWebSocketLogic
         return response;
     }
 
-    public Task<ConnectionResponse> getConnection(Connection connection)
+    public async Task<ConnectionResponse> getConnection()
     {
-        throw new NotImplementedException();
+        using var channel = GrpcChannel.ForAddress("http://localhost:4242");
+        var client = new ProtoService.ProtoServiceClient(channel);
+  
+        var reply = client.getConnection(new Connection
+            {
+                Url = "wss://iotnet.teracom.dk/app?token=vnoVQQAAABFpb3RuZXQudGVyYWNvbS5ka44TEFZ6iw5hEImHN64AWw0="
+            });
+        return reply;
     }
 
     public async Task<UpdateResponse> getUpdate(Update update)
@@ -36,10 +43,8 @@ public class WebSocketLogicImpl : IWebSocketLogic
 
         while (await timer.WaitForNextTickAsync())
         {
-            //
+            
         }
-        
-        ReadingService readingService = new ReadingService(new DataContext(null)); 
         throw new NotImplementedException();
     }
 }

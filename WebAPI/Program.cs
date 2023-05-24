@@ -8,6 +8,7 @@ using WebAPI.WebAPI.Services.ConfigService;
 using WebAPI.WebAPI.Services.NoteService;
 using WebAPI.WebAPI.Services.ReadingService;
 using WebAPI.WebAPI.Services.UserService;
+using WebAPI.WebSocket.LogicImpl;
 
 var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -79,18 +80,9 @@ app.MapControllerRoute(
 
 // Grpc
 
-/*
-using var channel = GrpcChannel.ForAddress("http://70.34.254.24:4242");
+
 //172.17.0.2 -> Docker
-//70.34.253.20 -> 140.82.33.21
-var client = new ProtoService.ProtoServiceClient(channel);
-  
-var reply = client.getConnection(new Connection
-{
-    Url = "wss://iotnet.teracom.dk/app?token=vnoVQQAAABFpb3RuZXQudGVyYWNvbS5ka44TEFZ6iw5hEImHN64AWw0="
-});
-  
-Console.WriteLine($"Response: {reply.Response}");
-*/
+//140.82.33.21 -> localhost
+WebSocketLogicImpl webSocketLogicImpl = new WebSocketLogicImpl("http://localhost:4242");
 
 app.Run();
