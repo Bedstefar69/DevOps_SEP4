@@ -1,10 +1,14 @@
 global using Microsoft.EntityFrameworkCore;
-global using WebAPI.Data;
 using System.Net;
-using WebAPI.Services.ConfigService;
-using WebAPI.Services.NoteService;
-using WebAPI.Services.ReadingService;
-using WebAPI.Services.UserService;
+using System.Text.Json.Serialization;
+using Grpc.Net.Client;
+using gRPCWebSocket;
+using WebAPI.WebAPI.Data;
+using WebAPI.WebAPI.Services.ConfigService;
+using WebAPI.WebAPI.Services.NoteService;
+using WebAPI.WebAPI.Services.ReadingService;
+using WebAPI.WebAPI.Services.UserService;
+using WebAPI.WebSocket.LogicImpl;
 
 var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -12,6 +16,9 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 // Add services to the container.
 // http://*:80
 builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(x =>
+    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -71,4 +78,20 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action}/{id?}");
 
+// Grpc
+
+
+//172.17.0.2 -> Docker
+//140.82.33.21 -> localhost
+
+        using var channel = GrpcChannel.ForAddress("http://javacontainer2:4242");
+        var client = new ProtoService.ProtoServiceClient(channel);
+  
+        var reply = client.getConnection(new Connection
+            {
+                Url = "wss://iotnet.teracom.dk/app?token=vnoVQQAAABFpb3RuZXQudGVyYWNvbS5ka44TEFZ6iw5hEImHN64AWw0="
+            });
+Console.WriteLine(reply.Response);
+
 app.Run();
+Console.WriteLine("and now im dead");
