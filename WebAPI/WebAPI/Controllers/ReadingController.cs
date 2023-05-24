@@ -21,6 +21,12 @@ public class ReadingController : ControllerBase
     {
         return Ok(_readingService.GetReadings().Result);
     }
+
+    [HttpGet]
+    public async Task<ActionResult<List<Reading>>> GetReadingsByName(string name)
+    {
+        return Ok(await _readingService.GetReadingsByName(name));
+    }
     
     [HttpGet] 
     public async Task<ActionResult<List<Reading>>> GetNewestReading()

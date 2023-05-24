@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace WebAPI.WebAPI.Models;
-
+// BLIVER IKKE FÆRDIG IMPLEMENTERET
 public class User
 {
     [Key][Required]

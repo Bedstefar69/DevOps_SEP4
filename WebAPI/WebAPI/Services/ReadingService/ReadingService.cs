@@ -18,6 +18,14 @@ public class ReadingService : IReadingService
     {
         return await _dataContext.Readings.ToListAsync();
     }
+    
+    public async Task<ActionResult<List<Reading>>> GetReadingsByName(string name)
+    {
+        var readings = await _dataContext.Readings.Where(c => c.Plant == name).ToListAsync();
+
+        return readings;
+    }
+    
 
     public async Task<ActionResult<List<Reading>>> GetNewestReading()
     {
@@ -44,4 +52,6 @@ public class ReadingService : IReadingService
 
         return await _dataContext.Readings.ToListAsync();
     }
+
+    
 }

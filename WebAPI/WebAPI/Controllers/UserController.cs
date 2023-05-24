@@ -5,6 +5,8 @@ namespace WebAPI.WebAPI.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
+
+// BLIVER IKKE FÆRDIG IMPLEMENTERET
 public class UserController : ControllerBase
 {
     private readonly IUserService _IUserService;
