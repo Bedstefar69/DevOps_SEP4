@@ -1,12 +1,6 @@
 package grpc;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import org.websocket.WebsocketClient;
-import DTO.UplinkMessage;
-
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 

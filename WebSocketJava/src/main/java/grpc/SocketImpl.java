@@ -10,8 +10,6 @@ import DTO.UplinkMessage;
 public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
     private WebsocketClient client;
-    private DTO.Update update;
-
 
     public SocketImpl() {
         System.out.println("SocketImpl running");
@@ -41,7 +39,6 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
         String url = connection.getUrl();
         client = new WebsocketClient(url);
-        client.setUpdate("\"000a000a000a\"");
         ConnectionResponse response = ConnectionResponse.newBuilder().setResponse("Connected").build();
         responseStreamObserver.onNext(response);
         responseStreamObserver.onCompleted();
@@ -50,23 +47,25 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
     @Override
     public void setConfig(NewConfig config, StreamObserver<ConfigResponse> configResponseStreamObserver) {
+        String responseText;
         System.out.println("New Config");
         String data = String.valueOf((int) config.getMaxHumid()) + (int) config.getMinHumid() + (int) config.getMaxTemp() + (int) config.getMinTemp() +config.getMaxOx() + config.getMinOx();
-        System.out.println(data);
-
+        System.out.println("Incoming data from front-end: " + data);
         UplinkMessage message = new UplinkMessage("tx","0004A30B00E7E7C1", 2, true, data);
         ObjectMapper mapper = new ObjectMapper();
         try {
             String messageToString = mapper.writeValueAsString(message);
             System.out.println(messageToString);
             client.sendDownLink(messageToString);
+            responseText = "Message received and sent to IoT device";
         }
         catch (JsonProcessingException e){
-            System.out.println("oops");
+            System.out.println("Json Error");
+            responseText = "Error";
         }
 
 
-        ConfigResponse response = ConfigResponse.newBuilder().setResponse("good stuff").build();
+        ConfigResponse response = ConfigResponse.newBuilder().setResponse(responseText).build();
 
         configResponseStreamObserver.onNext(response);
         configResponseStreamObserver.onCompleted();
