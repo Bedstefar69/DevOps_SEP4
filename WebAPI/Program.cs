@@ -39,7 +39,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<INoteService, NoteService>();
 builder.Services.AddScoped<IReadingService, ReadingService>();
 builder.Services.AddScoped<IConfigService, ConfigService>();
-builder.Services.AddScoped<ISocketService, SocketService>();
+
+builder.Services.AddHostedService<SocketService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -53,7 +54,6 @@ if (!builder.Environment.IsDevelopment())
         options.HttpsPort = 443;
     });
 }
-
 
 var app = builder.Build();
 
