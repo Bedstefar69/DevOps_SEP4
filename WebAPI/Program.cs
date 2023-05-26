@@ -39,6 +39,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<INoteService, NoteService>();
 builder.Services.AddScoped<IReadingService, ReadingService>();
 builder.Services.AddScoped<IConfigService, ConfigService>();
+builder.Services.AddScoped<ISocketService, SocketService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -84,12 +85,5 @@ app.MapControllerRoute(
 //172.17.0.2 -> Docker
 //140.82.33.21 -> localhost
 
-
-SocketService service = new SocketService();
-var response = service.getUpdate(new Update
-{
-    Response = "idk"
-});
-Console.WriteLine(response.Result);
 
 app.Run();

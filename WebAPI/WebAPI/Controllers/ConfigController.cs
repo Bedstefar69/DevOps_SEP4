@@ -34,7 +34,10 @@ public class ConfigController : ControllerBase
     [HttpPut]
     public async Task UpdateConfig([FromBody] UpdateConfigDTO request)
     {
-        await _configService.UpdateConfig(request);
+        if (ModelState.IsValid)
+        {
+            await _configService.UpdateConfig(request);
+        }
     }
 
     [HttpPost]
