@@ -57,9 +57,8 @@ public class ConfigService : IConfigService
             MaxHumidity = request.MaxHumidity,
             MinCo2 = request.MinCo2,
             MaxCo2 = request.MaxCo2,
-            Notes = {NoteString = "Ingen noter"},
+            Notes = new Note {NoteString = "Ingen noter"},
         };
-        tempconfig.Notes.Config = tempconfig;
 
         _dataContext.Config.Add(tempconfig);
         await _dataContext.SaveChangesAsync();

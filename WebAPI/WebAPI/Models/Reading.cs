@@ -6,10 +6,10 @@ namespace WebAPI.WebAPI.Models;
 
 public class Reading
 {
-    [MaxLength(50)][Key]
+    [MaxLength(50)][Required]
     public string Plant { get; set; }
     
-    [Required]
+    [Key]
     public DateTime Timestamp { get; set; }
     
     [Required]
