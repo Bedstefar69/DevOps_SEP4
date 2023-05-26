@@ -37,7 +37,7 @@ public class WebSocketLogicImpl : IWebSocketLogic
         return reply;
     }
 
-    public async Task<UpdateResponse> getUpdate(Update update)
+    public static async Task<UpdateResponse> getUpdate(Update update)
     {
         using var channel = GrpcChannel.ForAddress("http://localhost:4242");
         var client = new ProtoService.ProtoServiceClient(channel);

@@ -6,6 +6,10 @@ public interface IWebSocketLogic
 {
     Task<ConfigResponse> setConfig(NewConfig config);
     Task<ConnectionResponse> getConnection();
-    Task<UpdateResponse> getUpdate(Update update);
+
+    static Task<UpdateResponse> getUpdate(Update update)
+    {
+        return new Task<UpdateResponse>(null);
+    }
 
 }

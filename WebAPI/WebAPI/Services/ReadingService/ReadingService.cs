@@ -10,14 +10,11 @@ public class ReadingService : IReadingService
 {
 
     private readonly DataContext _dataContext;
-   // WebSocketLogicImpl webSocketLogicImpl = new WebSocketLogicImpl("http://localhost:4242");
 
     public ReadingService(DataContext dataContext)
     {
         _dataContext = dataContext;
-      //  Console.WriteLine("HELLO");
       //  getReadingFromDevice();
-      // Console.WriteLine("hello?");
     }
 
     public async Task<ActionResult<List<Reading>>> GetReadings()
@@ -61,15 +58,15 @@ public class ReadingService : IReadingService
 
     }
 
-    /*public async void getReadingFromDevice()
+    public async void getReadingFromDevice()
     {
-        Console.WriteLine("hi there");
-        await webSocketLogicImpl.getConnection();
+        Console.WriteLine("Getting readings automatically");
         var timer = new PeriodicTimer(TimeSpan.FromSeconds(10));
 
         while (await timer.WaitForNextTickAsync())
         {
-            var response = await webSocketLogicImpl.getUpdate(new Update
+            Console.WriteLine("Checking for a reading");
+            var response = await WebSocketLogicImpl.getUpdate(new Update
             {
                 Response = "getReadings"
             });
@@ -80,6 +77,6 @@ public class ReadingService : IReadingService
             }
         }
 
-    }*/
+    }
 
 }
