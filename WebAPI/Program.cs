@@ -6,7 +6,7 @@ using gRPCWebSocket;
 using WebAPI.WebAPI.Data;
 using WebAPI.WebAPI.Services.ConfigService;
 using WebAPI.WebAPI.Services.NoteService;
-using WebAPI.WebAPI.Services.ReadingService;
+using WebAPI.WebAPI.Services.ReadingService;using WebAPI.WebAPI.Services.SocketService;
 using WebAPI.WebAPI.Services.UserService;
 using WebAPI.WebSocket.LogicImpl;
 
@@ -84,13 +84,12 @@ app.MapControllerRoute(
 //172.17.0.2 -> Docker
 //140.82.33.21 -> localhost
 
- /*       using var channel = GrpcChannel.ForAddress("http://javacontainer2:4242");
-        var client = new ProtoService.ProtoServiceClient(channel);
-  
-        var reply = client.getConnection(new Connection
-            {
-                Url = "wss://iotnet.teracom.dk/app?token=vnoVQQAAABFpb3RuZXQudGVyYWNvbS5ka44TEFZ6iw5hEImHN64AWw0="
-            });
-Console.WriteLine(reply.Response);
-*/
+
+SocketService service = new SocketService();
+var response = service.getUpdate(new Update
+{
+    Response = "idk"
+});
+Console.WriteLine(response.Result);
+
 app.Run();

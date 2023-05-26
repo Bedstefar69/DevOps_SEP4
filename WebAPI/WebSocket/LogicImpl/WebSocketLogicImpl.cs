@@ -27,7 +27,7 @@ public class WebSocketLogicImpl : IWebSocketLogic
 
     public async Task<ConnectionResponse> getConnection()
     {
-        using var channel = GrpcChannel.ForAddress("http://localhost:4242");
+        using var channel = GrpcChannel.ForAddress(url);
         var client = new ProtoService.ProtoServiceClient(channel);
   
         var reply = client.getConnection(new Connection
@@ -37,9 +37,9 @@ public class WebSocketLogicImpl : IWebSocketLogic
         return reply;
     }
 
-    public static async Task<UpdateResponse> getUpdate(Update update)
+    public async Task<UpdateResponse> getUpdate(Update update)
     {
-        using var channel = GrpcChannel.ForAddress("http://localhost:4242");
+        using var channel = GrpcChannel.ForAddress(url);
         var client = new ProtoService.ProtoServiceClient(channel);
         return client.checkStatus(update);
     }

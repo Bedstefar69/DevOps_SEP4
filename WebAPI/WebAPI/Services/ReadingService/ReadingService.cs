@@ -10,11 +10,13 @@ public class ReadingService : IReadingService
 {
 
     private readonly DataContext _dataContext;
+    private SocketService.SocketService _socketService = new SocketService.SocketService();
 
     public ReadingService(DataContext dataContext)
     {
         _dataContext = dataContext;
-      //  getReadingFromDevice();
+        Thread thread = new Thread(() => getReadingFromDevice());
+        thread.Start();
     }
 
     public async Task<ActionResult<List<Reading>>> GetReadings()
@@ -66,7 +68,7 @@ public class ReadingService : IReadingService
         while (await timer.WaitForNextTickAsync())
         {
             Console.WriteLine("Checking for a reading");
-            var response = await WebSocketLogicImpl.getUpdate(new Update
+            var response = await _socketService.getUpdate(new Update
             {
                 Response = "getReadings"
             });
