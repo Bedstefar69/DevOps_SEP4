@@ -9,59 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba0c5249-1709-42b8-a327-8c11f2172d9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_android_annotations_4_1_1_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_api_grpc_proto_google_common_protos_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_18_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_31_1_android.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_21_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_api_1_54_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_context_1_54_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_core_1_54_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_netty_1_54_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_protobuf_1_54_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_protobuf_lite_1_54_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_stub_1_54_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_87_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_perfmark_perfmark_api_0_25_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_12_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_java_websocket_Java_WebSocket_1_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20230227.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebSocketJava/WebSocketJava.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebSocketJava/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DevOps_SEP4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DevOps_SEP4.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/WebSocketJava_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/WebSocketJava_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="ba0c5249-1709-42b8-a327-8c11f2172d9f" name="Changes" comment="25-05-2023 -&gt; V.09 næsten færdigt, mangler tests og kommentarer nogle steder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/DTO/DownlinkMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/grpc/Socket.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/grpc/Socket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/grpc/SocketImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/grpc/SocketImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/WebsocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebSocketJava/src/main/java/org/websocket/WebsocketClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +75,7 @@
       <recent name="C:\Users\poizo\IdeaProjects\DevOps_SEP4\WebSocketJava\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.WebSocketJava/Dockerfile">
+  <component name="RunManager" selected="Docker.BIGMAN">
     <configuration name="WebSocketJava.jar (2)" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/WebSocketJava/out/WebSocketJava.jar" />
       <method v="2" />
@@ -134,7 +84,15 @@
       <deployment type="dockerfile">
         <settings>
           <option name="imageTag" value="manbig:420" />
-          <option name="buildOnly" value="true" />
+          <option name="containerName" value="javaContainer" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="4242" />
+                <option name="hostPort" value="4242" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
           <option name="sourceFilePath" value="WebSocketJava/Dockerfile" />
         </settings>
       </deployment>
@@ -168,9 +126,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.BIGMAN" />
         <item itemvalue="Docker.WebSocketJava/Dockerfile" />
         <item itemvalue="Docker.Docker Image (1)" />
-        <item itemvalue="Docker.BIGMAN" />
         <item itemvalue="Docker.Docker Image" />
         <item itemvalue="JAR Application.WebSocketJava.jar (2)" />
       </list>
@@ -219,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683847543428</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="25-05-2023 -&gt; V.09 næsten færdigt, mangler tests og kommentarer nogle steder">
+      <created>1685050573011</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685050573011</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +206,7 @@
     <MESSAGE value="10-05-2023 V2 - gRPC tilføjet" />
     <MESSAGE value="11-05-2023  - fortsat udvikling af funktioner, klargøring til Docker" />
     <MESSAGE value="12-05-2023 v1 -&gt; Dockeriseret (beta)" />
-    <option name="LAST_COMMIT_MESSAGE" value="12-05-2023 v1 -&gt; Dockeriseret (beta)" />
+    <MESSAGE value="25-05-2023 -&gt; V.09 næsten færdigt, mangler tests og kommentarer nogle steder" />
+    <option name="LAST_COMMIT_MESSAGE" value="25-05-2023 -&gt; V.09 næsten færdigt, mangler tests og kommentarer nogle steder" />
   </component>
 </project>

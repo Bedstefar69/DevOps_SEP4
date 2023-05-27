@@ -38,8 +38,8 @@ public class WebsocketClient implements WebSocket.Listener {
 
     private double hexstringToDouble(String hex){
         System.out.println(hex);
-        Integer tempInt = Integer.parseInt(hex, 16);
-        return tempInt/10;
+        Long longHex = Long.parseLong(hex, 16);
+        return longHex.doubleValue() / 10;
     }
 
     // Send down-link message to device
