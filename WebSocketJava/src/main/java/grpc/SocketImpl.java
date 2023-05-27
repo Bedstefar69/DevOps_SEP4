@@ -9,7 +9,7 @@ import DTO.UplinkMessage;
 
 public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
-    private WebsocketClient client;
+    private WebsocketClient client = null;
 
     public SocketImpl() {
         System.out.println("SocketImpl running");
@@ -35,11 +35,19 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
     @Override
     public void getConnection(Connection connection, StreamObserver<ConnectionResponse> responseStreamObserver) {
-        System.out.println("Connected");
+        System.out.println("Connection Request fra MAIN");
 
+        ConnectionResponse response;
         String url = connection.getUrl();
-        client = new WebsocketClient(url);
-        ConnectionResponse response = ConnectionResponse.newBuilder().setResponse("Connected").build();
+        if (client == null) {
+            client = new WebsocketClient(url);
+            response = ConnectionResponse.newBuilder().setResponse("Connected").build();
+            System.out.println("new client connected");
+        }
+        else{
+            response = ConnectionResponse.newBuilder().setResponse("Already Connected").build();
+            System.out.println("Client already connected");
+        }
         responseStreamObserver.onNext(response);
         responseStreamObserver.onCompleted();
     }
