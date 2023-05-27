@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using gRPCWebSocket;
+using Microsoft.AspNetCore.Mvc;
 using WebAPI.WebAPI.Data;
 using WebAPI.WebAPI.Data.DTOer;
 using WebAPI.WebAPI.Models;
@@ -41,6 +42,16 @@ public class ConfigService : IConfigService
             MinCo2 = request.MinCo2,
             MaxCo2 = request.MaxCo2,
         };
+        
+        await SocketService.SocketService.setConfig(new NewConfig
+        {
+            MaxHumid = request.MaxHumidity,
+            MaxOx = request.MaxCo2,
+            MaxTemp = request.MaxTemperature,
+            MinHumid = request.MinHumidity,
+            MinOx = request.MinCo2,
+            MinTemp = request.MinTemperature
+        });
         
         _dataContext.Config.Update(tempconfig);
         await _dataContext.SaveChangesAsync();

@@ -14,6 +14,7 @@ public class ReadingService : IReadingService
     public ReadingService(DataContext dataContext)
     {
         _dataContext = dataContext;
+        getNewestReadings();
     }
 
     public async Task<ActionResult<List<Reading>>> GetReadings()
@@ -54,6 +55,20 @@ public class ReadingService : IReadingService
         var created = await _dataContext.SaveChangesAsync();
 
         return created > 0;
+    }
 
+    public async void getNewestReadings()
+    {
+        var timer = new PeriodicTimer(TimeSpan.FromMinutes(1));
+
+        while (await timer.WaitForNextTickAsync())
+        {
+            var response = await SocketService.SocketService.getUpdate();
+
+            if (response.Temp < 999)
+            {
+                await CreateReading(response.Temp, response.Humid, response.Ox);
+            }
+        }
     }
 }
