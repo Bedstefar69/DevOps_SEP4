@@ -15,6 +15,7 @@ public class WebSocketLogicImpl : IWebSocketLogic
     public WebSocketLogicImpl(string url)
     {
         this.url = url;
+        getConnection();
     }
     
     public async Task<ConfigResponse> setConfig(NewConfig config)
