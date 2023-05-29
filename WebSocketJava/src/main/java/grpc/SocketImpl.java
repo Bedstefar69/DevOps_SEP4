@@ -57,7 +57,15 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
     public void setConfig(NewConfig config, StreamObserver<ConfigResponse> configResponseStreamObserver) {
         String responseText;
         System.out.println("New Config");
-        String data = String.valueOf((int) config.getMaxHumid()) + (int) config.getMinHumid() + (int) config.getMaxTemp() + (int) config.getMinTemp() +config.getMaxOx() + config.getMinOx();
+        String maxHum = numberToHexString(config.getMaxHumid() * 10);
+        String minHum = numberToHexString(config.getMinHumid() * 10);
+        String maxTemp = numberToHexString(config.getMaxTemp() * 10);
+        String minTemp = numberToHexString(config.getMinTemp() * 10);
+        String maxOx = numberToHexString(config.getMaxOx());
+        String minOx = numberToHexString(config.getMinOx());
+
+
+        String data = maxHum + minHum + maxTemp + minTemp + maxOx + minOx;
         System.out.println("Incoming data from front-end: " + data);
         UplinkMessage message = new UplinkMessage("tx","0004A30B00E7E7C1", 2, true, data);
         ObjectMapper mapper = new ObjectMapper();
@@ -78,6 +86,17 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
         configResponseStreamObserver.onNext(response);
         configResponseStreamObserver.onCompleted();
 
+    }
+
+
+    private String numberToHexString(double input){
+        long result = (long) input;
+        String hex = Long.toHexString(result);
+        int extraZeros = 4 -hex.length();
+        for (int i = 0; i < extraZeros; i++) {
+            hex = "0" + hex;
+        }
+        return hex;
     }
 
 
