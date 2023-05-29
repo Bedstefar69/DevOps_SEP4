@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package grpc.websocket;
+option csharp_namespace = "gRPCWebSocket";
+option java_multiple_files = true;
+
+message Connection{ //Muligvis ikke nødvendig (10-05-2023)
+  string url = 1;
+}
+
+message ConnectionResponse{
+  string response = 1;
+}
+
+message NewConfig{
+  double maxTemp = 1;
+  double minTemp = 2;
+  double maxHumid = 3;
+  double minHumid = 4;
+  int32 maxOx = 5;
+  int32 minOx = 6;
+}
+
+message ConfigResponse{
+  string response = 1;
+}
+
+message Update{
+  string response = 1;
+}
+
+message UpdateResponse{
+  double temp = 1;
+  double humid = 2;
+  int32 ox = 3;
+}
+
+
+service ProtoService{
+  rpc getConnection(Connection) returns (ConnectionResponse);
+  rpc setConfig(NewConfig) returns (ConfigResponse);
+  rpc checkStatus(Update) returns (UpdateResponse);
+}
