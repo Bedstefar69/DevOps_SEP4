@@ -57,7 +57,7 @@ public class ReadingService : IReadingService
         return created > 0;
     }
 
-    public async void getNewestReadings()
+    public async Task getNewestReadings()
     {
         var timer = new PeriodicTimer(TimeSpan.FromMinutes(1));
 
