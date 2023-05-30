@@ -1,0 +1,35 @@
+
+name: CI
+
+on:
+  push:
+    branches: [ "main", "IOT-Dev" ]
+  pull_request:
+    branches: [ "main", "IOT-Dev" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v3
+        - name: Run a one-line script
+          run: echo Hello, world!
+        
+        - name: setup dotnet
+        - uses: actions/setup-dotnet@v3.2.0
+        
+            
+          
+  label:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        pull-requests: write
+
+      steps:
+      - uses: actions/labeler@v4
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
