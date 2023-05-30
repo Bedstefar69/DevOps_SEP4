@@ -15,7 +15,6 @@ public class WebSocketLogicImpl : IWebSocketLogic
     public WebSocketLogicImpl(string url)
     {
         this.url = url;
-        getConnection();
     }
     
     public async Task<ConfigResponse> setConfig(NewConfig config)
@@ -26,7 +25,12 @@ public class WebSocketLogicImpl : IWebSocketLogic
         return response;
     }
 
-    public async Task<ConnectionResponse> getConnection()
+    public Task<ConnectionResponse> getConnection()
+    {
+        throw new NotImplementedException();
+    }
+
+    /* public async Task<ConnectionResponse> getConnection()
     {
         using var channel = GrpcChannel.ForAddress(url);
         var client = new ProtoService.ProtoServiceClient(channel);
@@ -37,6 +41,7 @@ public class WebSocketLogicImpl : IWebSocketLogic
             });
         return reply;
     }
+    */
 
     public async Task<UpdateResponse> getUpdate(Update update)
     {

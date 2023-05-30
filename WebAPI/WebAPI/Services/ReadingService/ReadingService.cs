@@ -41,6 +41,7 @@ public class ReadingService : IReadingService
 
     public async Task<bool> CreateReading(double temperature, double humidity, int co2)
     {
+        Console.WriteLine("Creating reading");
         var temp = new Reading()
         {
             Co2 = co2,
@@ -50,10 +51,12 @@ public class ReadingService : IReadingService
             Timestamp = DateTime.Now
         };
 
-
+        Console.WriteLine(temp.Timestamp);
         _dataContext.Readings.Add(temp);
+        Console.WriteLine("added");
         var created = await _dataContext.SaveChangesAsync();
-
+        Console.WriteLine("saved");
+        Console.WriteLine(created > 0);
         return created > 0;
     }
 
@@ -67,8 +70,21 @@ public class ReadingService : IReadingService
 
             if (response.Temp < 999)
             {
-                await CreateReading(response.Temp, response.Humid, response.Ox);
+                var temp = new Reading()
+                {
+                    Co2 = response.Ox,
+                    Humidity = response.Humid,
+                    Temperature = response.Temp,
+                    Plant = "Tomato",
+                    Timestamp = DateTime.Now
+                };
+
+                await _dataContext.Readings.AddAsync(temp);
+                await _dataContext.SaveChangesAsync();
+                Console.WriteLine("Added");
             }
+
         }
     }
+
 }
