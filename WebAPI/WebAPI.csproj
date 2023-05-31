@@ -32,7 +32,9 @@
     <ItemGroup>
       <None Remove="Properties\launchSettings.json" />
     </ItemGroup>
-
+    <ItemGroup>
+        <Protobuf Include="WebSocket\Protos\WebSocket.proto" GrpcServices="Client"></Protobuf>
+    </ItemGroup>
     <ItemGroup>
       <_ContentIncludedByDefault Remove="out\web.config" />
       <_ContentIncludedByDefault Remove="out\appsettings.Development.json" />
