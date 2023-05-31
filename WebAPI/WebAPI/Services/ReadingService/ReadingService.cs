@@ -10,20 +10,22 @@ public class ReadingService : IReadingService
 {
 
     private readonly DataContext _dataContext;
+    private Boolean isChecking;
 
     public ReadingService(DataContext dataContext)
     {
         _dataContext = dataContext;
-        getNewestReadings();
     }
 
     public async Task<ActionResult<List<Reading>>> GetReadings()
     {
+        getNewestReadingFromJava();
         return await _dataContext.Readings.ToListAsync();
     }
 
     public async Task<ActionResult<List<Reading>>> GetReadingsByName(string name)
     {
+        getNewestReadingFromJava();
         var readings = await _dataContext.Readings.Where(c => c.Plant == name).ToListAsync();
 
         return readings;
@@ -32,6 +34,7 @@ public class ReadingService : IReadingService
 
     public async Task<ActionResult<List<Reading>>> GetNewestReading()
     {
+        getNewestReadingFromJava();
         List<Reading> reading = await _dataContext.Readings.ToListAsync();
         List<Reading> readingLast = new List<Reading>();
         readingLast.Add(reading.LastOrDefault());
@@ -41,6 +44,7 @@ public class ReadingService : IReadingService
 
     public async Task<bool> CreateReading(double temperature, double humidity, int co2)
     {
+        Console.WriteLine("Creating reading");
         var temp = new Reading()
         {
             Co2 = co2,
@@ -50,16 +54,28 @@ public class ReadingService : IReadingService
             Timestamp = DateTime.Now
         };
 
+        Console.WriteLine(temp.Timestamp);
+        await _dataContext.Readings.AddAsync(temp);
+        var result = _dataContext.SaveChangesAsync().Result;
+        Console.WriteLine("Reading created");
+        return result > 0;
+    }   
 
-        _dataContext.Readings.Add(temp);
-        var created = await _dataContext.SaveChangesAsync();
-
-        return created > 0;
-    }
-
-    public async void getNewestReadings()
+    private async void getNewestReadingFromJava()
     {
-        var timer = new PeriodicTimer(TimeSpan.FromMinutes(1));
+        
+        var response = await SocketService.SocketService.getUpdate();
+
+        if (response.Temp < 999)
+        {
+            Console.WriteLine("Reading recieved");
+            await CreateReading(response.Temp, response.Humid, response.Ox);
+            
+        }
+
+        /*
+        var timer = new PeriodicTimer(TimeSpan.FromSeconds(10));
+        
 
         while (await timer.WaitForNextTickAsync())
         {
@@ -67,8 +83,24 @@ public class ReadingService : IReadingService
 
             if (response.Temp < 999)
             {
-                await CreateReading(response.Temp, response.Humid, response.Ox);
+                /*var temp = new Reading()
+                {
+                    Co2 = response.Ox,
+                    Humidity = response.Humid,
+                    Temperature = response.Temp,
+                    Plant = "Tomato",
+                    Timestamp = DateTime.Now
+                };
+                Task.Run(() => _dataContext.Readings.AddAsync(temp));
+                Task.Run(() => _dataContext.SaveChangesAsync());
+                //await _dataContext.Readings.AddAsync(temp);
+                //await _dataContext.SaveChangesAsync();
+                Console.WriteLine("Added");
+               await CreateReading(response.Temp, response.Humid, response.Ox);
             }
+
         }
+        */
     }
+
 }
