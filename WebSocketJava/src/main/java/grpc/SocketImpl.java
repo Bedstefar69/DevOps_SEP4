@@ -9,7 +9,7 @@ import DTO.UplinkMessage;
 
 public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
 
-    private WebsocketClient client = null;
+    private final WebsocketClient client = new WebsocketClient("wss://iotnet.teracom.dk/app?token=vnoVQQAAABFpb3RuZXQudGVyYWNvbS5ka44TEFZ6iw5hEImHN64AWw0=");
 
     public SocketImpl() {
         System.out.println("SocketImpl running");
@@ -21,6 +21,7 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
         UpdateResponse response;
         System.out.println("Checking for updates");
         if(client.updateReady) {
+            System.out.println("Update found and sent");
             DTO.Update tempUpdate = client.getUpdate();
             response = UpdateResponse.newBuilder()
                     .setTemp(tempUpdate.getTemp()).setOx(tempUpdate.getOx()).setHumid(tempUpdate.getHumid()).build();
@@ -33,7 +34,7 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
         }
 
 
-    @Override
+   /* @Override
     public void getConnection(Connection connection, StreamObserver<ConnectionResponse> responseStreamObserver) {
         System.out.println("Connection Request fra MAIN");
 
@@ -46,11 +47,10 @@ public class SocketImpl extends ProtoServiceGrpc.ProtoServiceImplBase {
         }
         else{
             response = ConnectionResponse.newBuilder().setResponse("Already Connected").build();
-            System.out.println("Client already connected");
         }
         responseStreamObserver.onNext(response);
         responseStreamObserver.onCompleted();
-    }
+    } */
 
 
     @Override
