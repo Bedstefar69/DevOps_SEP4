@@ -30,9 +30,9 @@ public class ReadingControllerTests
         var sut = new ReadingController(readingService.Object);
  
         /// Act
-        var result = sut.Response.Body.;
+       // var result = sut.Response.Body.;
         // /// Assert
-        result
+        // result
     }
     
     
