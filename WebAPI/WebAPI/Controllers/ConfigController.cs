@@ -19,13 +19,13 @@ public class ConfigController : ControllerBase
     
     
     [HttpGet]
-    public async Task<ActionResult<List<Config>>> GetConfig()
+    public async Task<IActionResult> GetConfig()
     {
-        return  Ok(await _configService.GetConfig());
+        return await _configService.GetConfig();
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<Config>>> GetConfigByName(string name)
+    public async Task<IActionResult> GetConfigByName(string name)
     {
         return await _configService.GetConfigByName(name);
     }

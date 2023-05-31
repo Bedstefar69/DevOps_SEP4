@@ -16,17 +16,17 @@ public class ConfigService : IConfigService
         _dataContext = dataContext;
     }
 
-    public async Task<ActionResult<List<Config>>> GetConfig()
+    public async Task<IActionResult> GetConfig()
     {
         var configurations = await _dataContext.Config.Include(config => config.Notes).Include(c => c.Readings).ToListAsync();
-        return configurations;
+        return new OkObjectResult(configurations);
     }
     
-    public async Task<ActionResult<List<Config>>> GetConfigByName(string name)
+    public async Task<IActionResult> GetConfigByName(string name)
     {
         var configurations = await _dataContext.Config.Where(c => c.Plant == name).Include(c => c.Notes).Include(c => c.Readings).ToListAsync();
 
-        return configurations;
+        return new OkObjectResult(configurations);
     }
     
 

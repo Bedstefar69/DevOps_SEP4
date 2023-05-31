@@ -2,4 +2,16 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\poizo\RiderProjects\DevOps_SEP4\WebSocketGrpc\bin\Debug\net7.0\WebSocketGrpc.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a36e1f97_002D6671_002D4e90_002Dbe71_002D13bc53fddd3b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ConfigControllerTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::9D898E0A-4216-4544-B8F3-45FC503ECACD::net6.0::UnitTestingWebAPI.ConfigControllerTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b927530f_002D75b5_002D420a_002D8684_002D819d2e354706/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ConfigControllerTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::9D898E0A-4216-4544-B8F3-45FC503ECACD::net6.0::UnitTestingWebAPI.ConfigControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9D898E0A-4216-4544-B8F3-45FC503ECACD::net6.0::UnitTestingWebAPI.ReadingControllerTests.CreateReadingShouldReturnTrue&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9D898E0A-4216-4544-B8F3-45FC503ECACD::net6.0::UnitTestingWebAPI.ReadingControllerTests.CreateReadingShouldReturnFalse&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>
