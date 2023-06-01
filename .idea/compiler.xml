@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="DevOps_SEP4" />
         <module name="WebSocketJava" />
       </profile>
     </annotationProcessing>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="WebSocketJava" options="" />
-    </option>
+    <bytecodeTargetLevel>
+      <module name="DevOps_SEP4" target="19" />
+      <module name="WebSocketJava" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

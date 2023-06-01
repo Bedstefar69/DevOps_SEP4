@@ -13,9 +13,9 @@ import java.nio.ByteBuffer;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.CompletableFuture;
 
-public class WebsocketClient implements WebSocket.Listener {
-    private WebSocket server = null;
-    private Update update;
+    public class WebsocketClient implements WebSocket.Listener {
+        private WebSocket server = null;
+        private Update update = null;
     public boolean updateReady = false;
 
     public Update getUpdate() {
@@ -24,20 +24,23 @@ public class WebsocketClient implements WebSocket.Listener {
     }
 
     public void setUpdate(String data) {
+        Update update;
+
         System.out.println("uplink data: " + data);
         double humid = hexstringToDouble(data.substring(1,5));
         double temp =  hexstringToDouble(data.substring(5, 9));
         int ox = 10 * (int) hexstringToDouble(data.substring(9, 13));
         System.out.println("temp: " + temp + " | ox: " + ox + " | humid: " + humid);
-        Update update = new Update(temp, ox, humid);
+        update = new Update(temp, ox, humid);
         this.update = update;
         updateReady = true;
+        System.out.println("update ready: " + true);
     }
 
     private double hexstringToDouble(String hex){
         System.out.println(hex);
-        Integer tempInt = Integer.parseInt(hex, 16);
-        return tempInt/10;
+        long longHex = Long.parseLong(hex, 16);
+        return (double) longHex / 10;
     }
 
     // Send down-link message to device
@@ -59,7 +62,7 @@ public class WebsocketClient implements WebSocket.Listener {
     //onOpen()
     public void onOpen(WebSocket webSocket) {
         // This WebSocket will invoke onText, onBinary, onPing, onPong or onClose methods on the associated listener (i.e. receive methods) up to n more times
-        webSocket.request(10);
+        webSocket.request(1);
         System.out.println("WebSocket Listener has been opened for requests.");
     }
 

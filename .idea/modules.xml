@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DevOps_SEP4.iml" filepath="$PROJECT_DIR$/.idea/DevOps_SEP4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebSocketJava/WebSocketJava.iml" filepath="$PROJECT_DIR$/WebSocketJava/WebSocketJava.iml" />
     </modules>
   </component>
 </project>

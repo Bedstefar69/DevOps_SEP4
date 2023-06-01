@@ -1,6 +1,7 @@
 FROM openjdk:19-jdk
 
 EXPOSE 4242
+EXPOSE 2
 
 VOLUME /backend_volume
 
